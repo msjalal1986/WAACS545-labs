@@ -1,7 +1,7 @@
 package miu.edu.lab.service.Impl;
 
 import lombok.RequiredArgsConstructor;
-import miu.edu.lab.repo.PostRepo;
+import miu.edu.lab.repo.Impl.PostRepo;
 import org.springframework.stereotype.Service;
 
 @Service
