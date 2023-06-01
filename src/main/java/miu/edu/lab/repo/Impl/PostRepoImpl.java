@@ -5,7 +5,6 @@ import miu.edu.lab.repo.PostRepo;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Component
@@ -22,9 +21,15 @@ public class PostRepoImpl implements PostRepo {
 
     }
 
-    @Override
-    public List<Post> findAllPosts() {
+   // @Override
+    public List <Post> findPosts() {
+
+        System.out.println("This is from post repo");
         return postsList;
     }
 
+    @Override
+    public String findAllPosts() {
+        return null;
+    }
 }
