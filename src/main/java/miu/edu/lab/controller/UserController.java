@@ -3,6 +3,7 @@ import miu.edu.lab.dto.PostDto;
 import miu.edu.lab.dto.UserDto;
 import miu.edu.lab.domain.User;
 import miu.edu.lab.domain.Post;
+import miu.edu.lab.service.Impl.UserServiceImpl;
 import miu.edu.lab.service.PostService;
 import miu.edu.lab.service.UserService;
 
@@ -16,11 +17,11 @@ import org.springframework.web.servlet.function.EntityResponse;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("users/")
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userService;
 
     @GetMapping()
     public List<UserDto> findAll() {

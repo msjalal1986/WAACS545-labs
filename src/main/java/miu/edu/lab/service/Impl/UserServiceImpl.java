@@ -3,18 +3,23 @@ package miu.edu.lab.service.Impl;
 import miu.edu.lab.domain.User;
 import miu.edu.lab.dto.UserDto;
 import miu.edu.lab.dto.PostDto;
+import miu.edu.lab.repo.PostRepo;
 import miu.edu.lab.repo.UserRepo;
 import miu.edu.lab.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepo userRepo;
+    @Autowired
+    private PostRepo postRepo;
+
     private ModelMapper modelMapper = new ModelMapper();
     @Override
     public List<UserDto> findAll() {
