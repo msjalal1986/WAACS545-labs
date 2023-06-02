@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class PostRepoImpl implements PostRepo {
+public class PostRepoImpl {
 
     private static List<Post> postsList;
 
@@ -28,8 +28,5 @@ public class PostRepoImpl implements PostRepo {
         return postsList;
     }
 
-    @Override
-    public String findAllPosts() {
-        return null;
-    }
+
 }

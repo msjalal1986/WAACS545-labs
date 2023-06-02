@@ -1,18 +1,31 @@
 package miu.edu.lab.domain;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.Date;
+
+@Entity
 @Data
-//@NoArgsConstructor
-//@AllArgsConstructor
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "posts")
 public class Post {
-    long id;
-    String title;
-    String content;
-    String author;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String title;
+    private String content;
+    private String author;
+    private Date createdDate;
+
+    @ManyToOne
+
+    @JsonBackReference
+    private User user;
+
 
     public Post(int id, String title, String content, String author) {
         this.id=id;
