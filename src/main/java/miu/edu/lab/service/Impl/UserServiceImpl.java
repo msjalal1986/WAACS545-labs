@@ -4,7 +4,6 @@ import miu.edu.lab.domain.User;
 import miu.edu.lab.dto.UserDto;
 import miu.edu.lab.dto.PostDto;
 import miu.edu.lab.repo.UserRepo;
-import miu.edu.lab.repo.PostRepo;
 import miu.edu.lab.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
