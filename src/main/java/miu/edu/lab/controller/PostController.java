@@ -1,5 +1,6 @@
 package miu.edu.lab.controller;
 
+import miu.edu.lab.annotation.ExecutionTimeAnnotation;
 import miu.edu.lab.domain.Post;
 import miu.edu.lab.service.Impl.PostServiceImpl;
 import miu.edu.lab.dto.PostDto;
@@ -15,21 +16,24 @@ import java.util.List;
 public class PostController {
     @Autowired
     private PostServiceImpl postServiceImpl;
+    @ExecutionTimeAnnotation
     @GetMapping()
     public List<PostDto> findAllPosts() {
         return postServiceImpl.findAll();
     }
-
+    @ExecutionTimeAnnotation
     @GetMapping(headers = {"api-version=v2"})
     public List<PostDto> findAllPostsV2() {
         return  postServiceImpl.findAllV2();
     }
 
+    @ExecutionTimeAnnotation
     @GetMapping("/{id}")
     public PostDto findPostById(@PathVariable int id) {
         return postServiceImpl.findPostById(id);
     }
 
+    @ExecutionTimeAnnotation
     @PostMapping
     public ResponseEntity<String> addPost(@RequestBody PostDto newPost) {
         if(postServiceImpl.addPost(newPost))
@@ -45,6 +49,7 @@ public class PostController {
         return postServiceImpl.deletePostById(id);
     }
 
+    @ExecutionTimeAnnotation
     @PutMapping("/{id}")
     public boolean updatePost(@PathVariable int id, @RequestBody PostDto updatedPost) {
         updatedPost.setId(id);

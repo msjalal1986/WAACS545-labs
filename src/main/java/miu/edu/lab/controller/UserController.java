@@ -1,4 +1,5 @@
 package miu.edu.lab.controller;
+import miu.edu.lab.annotation.ExecutionTimeAnnotation;
 import miu.edu.lab.dto.PostDto;
 import miu.edu.lab.dto.UserDto;
 import miu.edu.lab.domain.User;
@@ -22,17 +23,17 @@ public class UserController {
 
     @Autowired
     private UserServiceImpl userService;
-
+    @ExecutionTimeAnnotation
     @GetMapping()
     public List<UserDto> findAll() {
         return  userService.findAll();
     }
-
+    @ExecutionTimeAnnotation
     @GetMapping("/{id}")
     public UserDto findById(@PathVariable int id) {
         return  userService.findById(id);
     }
-
+    @ExecutionTimeAnnotation
     @GetMapping("/{id}/posts")
     public List<PostDto> findPostsById(@PathVariable int id) {
         return  userService.findPostsById(id);

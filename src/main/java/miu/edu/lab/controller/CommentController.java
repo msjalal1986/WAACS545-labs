@@ -1,7 +1,6 @@
 package miu.edu.lab.controller;
 
-import miu.edu.lab.dto.CommentDto;
-import miu.edu.lab.service.CommetService;
+import miu.edu.lab.annotation.ExecutionTimeAnnotation;
 import miu.edu.lab.dto.CommentDto;
 import miu.edu.lab.service.Impl.CommentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,20 +18,20 @@ public class CommentController {
     private CommentServiceImpl commentService;
 
 
-    //@Lab4ExecutionTime
-    //@Lab4LogInfo
+  @ExecutionTimeAnnotation
     @GetMapping()
     public List<CommentDto> findAll() {
         return commentService.findAll();
     }
 
-   // @Lab4LogInfo
+
+    @ExecutionTimeAnnotation
     @GetMapping("/{id}")
     public CommentDto findById(@PathVariable int id) {
         return commentService.findById(id);
     }
 
-
+@ExecutionTimeAnnotation
     @PostMapping("/{id}")
     public ResponseEntity<String> saveComment(@RequestBody CommentDto newCommentDto) {
 
@@ -40,7 +39,7 @@ public class CommentController {
         return ResponseEntity.status(HttpStatus.CREATED).body("Successfully added.");
     }
 
-   // @Lab4LogInfo
+  @ExecutionTimeAnnotation
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteById(@PathVariable int id) {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body("deleted...");
