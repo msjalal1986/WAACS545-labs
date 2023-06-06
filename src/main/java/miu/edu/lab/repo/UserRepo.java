@@ -13,4 +13,6 @@ public interface UserRepo extends JpaRepository<User,Long> {
     @Query(value = "SELECT * FROM users u WHERE u.id IN (SELECT p.user_id FROM posts p GROUP BY p.user_id HAVING count(*) > :count)", nativeQuery = true)
     public List<User> findUsersWithPosts(int count);
 
+    User findByEmail(String email);
+
 }
